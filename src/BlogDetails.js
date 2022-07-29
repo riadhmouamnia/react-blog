@@ -11,7 +11,7 @@ const BlogDetails = () => {
 
     const deleteBlog = ()=>{
         SetIsDeleting(true);
-        fetch('http://localhost:8000/blogs/' + blog.id, {
+        fetch('https://my-json-server.typicode.com/riadhmouamnia/reac-blog-db/blogs/' + blog.id, {
             method: 'DELETE'
         }).then(()=> {
             history.push('/');
