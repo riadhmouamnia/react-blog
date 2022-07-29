@@ -5,13 +5,13 @@ import useFetch from "./useFetch";
 
 const BlogDetails = () => {
     const {id} = useParams();
-    const {data:blog, isPending, error} = useFetch(`https://github.com/riadhmouamnia/reac-blog-db/blob/${id}`);
+    const {data:blog, isPending, error} = useFetch(`https://my-json-server.typicode.com/riadhmouamnia/reac-blog-db/blogs/${id}`);
     const history = useHistory();
     const [isDeleting, SetIsDeleting] = useState(false);
 
     const deleteBlog = ()=>{
         SetIsDeleting(true);
-        fetch('https://github.com/riadhmouamnia/reac-blog-db/blob/' + blog.id, {
+        fetch('https://my-json-server.typicode.com/riadhmouamnia/reac-blog-db/blogs/' + blog.id, {
             method: 'DELETE'
         }).then(()=> {
             history.push('/');
