@@ -1,32 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* base styles */
+:root {
+  --main-bg-color: #EEEEEE;
+  --dark: #8f8f8f44;
+  --light: #ffffff95;
+}
+
+
 * {
   margin: 0;
   font-family: "Quicksand";
   color: #333;
 }
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-bg-color);
+}
+#root{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 800px;
+  min-height: 100vh;
+  height: 100%;
+  border-radius: 5px;
+  /* you can uncomment this line if you want to add same effect to the APP container */
+  /* box-shadow:  4px 4px 10px var(--dark), -4px -4px 10px var(--light); */
+}
 .navbar {
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  max-width: 100%;
+  margin: 5px auto;
+  position: relative;
+}
+
+.buttoncontainer{
+  display: inline-block;
+  padding: 1.8em 0.8em;
+  margin-left: 12px;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 4px var(--dark), inset -2px -2px 4px var(--light);
+}
+.navbar::after{
+  content: "";
+  position: absolute;
+  width: 95%;
+  padding: 2px 0px;
+  border-radius: 1px;
+  margin-top: 120px;
+  box-shadow: inset 1px 1px 2px var(--dark), inset -1px -1px 2px var(--light);
 }
 .navbar h1 {
   color: #f1356d;
+  
 }
 .navbar .links {
   margin-left: auto;
 }
 .navbar a {
-  margin-left: 16px;
   text-decoration: none;
-  padding: 6px;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow:  2px 2px 4px var(--dark), -2px -2px 4px var(--light);
 }
 .navbar a:hover {
   color: #f1356d;
+}
+.navbar a:active {
+  box-shadow: none;
 }
 
 .creat:hover {
@@ -35,7 +87,7 @@
   border-radius: 8px;
 }
 .content {
-  max-width: 600px;
+  max-width: 700px;
   margin: 40px auto;
   padding: 20px;
 }
@@ -43,12 +95,15 @@
 /* blog previews / list */
 .blog-preview {
   padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
+  margin: 10px 0;
+  box-shadow:  4px 4px 8px var(--dark), -4px -4px 8px var(--light);
+  border-radius: 5px;
 }
-.blog-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+
+.blog-preview:active {
+  box-shadow: none;
 }
+
 .blog-preview h2 {
   font-size: 20px;
   color: #f1356d;
@@ -58,6 +113,12 @@
 .blog-preview a{
   text-decoration: none;
 }
+
+h2 {
+  margin-bottom: 55px;
+  /* color: #f1356d; */
+}
+
 /* blog details page */
 .blog-details h2 {
   font-size: 20px;
@@ -68,12 +129,20 @@
   margin: 20px 0;
 }
 .blog-details button {
-  background: #f1356d;
-  color: #fff;
+  background: #EEEEEE;
   border: 0;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 12px 32px;
+  border-radius: 4px;
+  box-shadow:  4px 4px 8px var(--dark), -4px -4px 8px var(--light);
   cursor: pointer;
+}
+
+.blog-details button:hover {
+  color: #f1356d;
+}
+
+.blog-details button:active {
+  box-shadow: none;
 }
 
 /* create new blog form */
@@ -95,15 +164,29 @@
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
-  border: 1px solid #ddd;
+  background-color: #EEEEEE;
+  box-shadow:  inset 2px 2px 4px var(--dark), inset -2px -2px 4px var(--light);
+  border: none;
   box-sizing: border-box;
   display: block;
 }
+
+.create input, .create textarea, .create select:focus {
+  outline: none;
+}
 .create button {
-  background: #f1356d;
-  color: #fff;
+  background: #EEEEEE;
+  font-weight: bold;
   border: 0;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 12px 32px;
+  border-radius: 4px;
   cursor: pointer;
+  margin: 20px auto;
+  box-shadow: 4px 4px 8px var(--dark), -4px -4px 8px var(--light);
+}
+.create button:hover {
+  color: rgb(50, 205, 112);
+}
+.create button:active {
+  box-shadow: none;
 }
